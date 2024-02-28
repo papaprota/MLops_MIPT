@@ -10,6 +10,41 @@
 
 Данные
 -------
+[Датасет с данными новостей издание Газета][1]
+
+[Датасет с данными на русском][2]
+
+[Датасет с новостями на русском][3]
+
+Данных на русском языке крайне мало, 1 и 2 датасеты - это данные новостей, 2 датасет - просто немного данных для суммаризации. Только на датасете 1 уже есть обученные модели, значит идейно его хватит, но какой качество получится - вопрос хороший. Так что добавил еще 2 и 3 датасет
+
+[Датасет новостей на английском][4]
+
+[Датасет статей на английском с abstract][5]
+
+[Датасет статей с Arxiv c abstract][6]
+
+На английском данных больше, наверное даже первого датасета хватит. Но лучше больше данных, чем меньше.
+
+
+Модель
+------
+Так как доступные ресурсы ограничены (12 GB VRAM and 64 GB RAM), то и круг доступных моделей сужается 
+
+[rut5_base предобученный на данных Газеты][7]
+
+[rut5_base][8]
+
+Инференс
+------
 
 
 
+[1]: https://github.com/IlyaGusev/gazeta
+[2]: https://huggingface.co/datasets/trixdade/reviews_russian
+[3]: https://huggingface.co/datasets/CarlBrendt/Summ_Dialog_News
+[4]: https://huggingface.co/datasets/multi_news
+[5]: https://huggingface.co/datasets/scientific_papers
+[6]: https://huggingface.co/datasets/arxiv_dataset
+[7]: https://huggingface.co/IlyaGusev/rut5_base_sum_gazeta/tree/main
+[8]: https://huggingface.co/cointegrated/rut5-base
