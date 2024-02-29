@@ -29,11 +29,21 @@
 
 Модель
 ------
-Так как доступные ресурсы ограничены (12 GB VRAM and 64 GB RAM), то и круг доступных моделей сужается 
+Так как доступные ресурсы ограничены (12 GB VRAM and 64 GB RAM), то и круг доступных моделей сужается. Все модели на Торче. 
+
+Модели на русском
 
 [rut5_base предобученный на данных Газеты][7]
 
 [rut5_base][8]
+
+Модель на английском
+
+[t5-finetune-cnndaily-news][9]
+
+Список моделей может поменяться (может получиться запустить модельку пожирнее)
+
+**Обучение** - подготовить run.py file, внутри модельку обернуть в pytorch-lightning для удобного логгирования и сохранения чекпоинтов. Запустить этот .py файл в контейнере, предварительно пробросив туда volume с данными и куда сохранять модель.
 
 Инференс
 ------
@@ -48,3 +58,4 @@
 [6]: https://huggingface.co/datasets/arxiv_dataset
 [7]: https://huggingface.co/IlyaGusev/rut5_base_sum_gazeta/tree/main
 [8]: https://huggingface.co/cointegrated/rut5-base
+[9]: https://huggingface.co/minhtoan/t5-finetune-cnndaily-news/tree/main
