@@ -50,9 +50,17 @@
 Инференс
 ------
 
-Я в
+Пока предполагаемая схема работы такая:
 
+1. Юзер отправляет ссылку на канал в Telegram и даты, за которые надо суммировать информацию боту.
 
+2. Бот отправляет текст на модель.
+
+3. Модель отправляет сжатую информацию обратно на бота.
+
+4. Бот отправляет тескт юзеру в виде сообщения в Telegram.
+
+![Схема работы](https://github.com/papaprota/MLops_MIPT/blob/main/inference.png)
 
 [1]: https://github.com/IlyaGusev/gazeta
 [2]: https://huggingface.co/datasets/trixdade/reviews_russian
