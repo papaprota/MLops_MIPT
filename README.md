@@ -2,6 +2,39 @@
 =====
 
 Проект по MLOps MIPT 2024
+-------
+
+## Структура репозитория 
+
+``` bash
+├── bot.py
+├── commands.py
+├── configs
+│   ├── __init__.py
+│   ├── test.yaml
+│   └── train.yaml
+├── data
+│   ├── gazeta_test.jsonl.dvc
+│   └── gazeta_train.jsonl.dvc
+├── images
+│   ├── inference.png
+│   └── train.png
+├── logger_mlflow
+│   ├── docker-compose.yaml
+│   └── Dockerfile
+├── README.md
+├── requirements.txt
+└── summarization
+    ├── __init__.py
+    └── scripts
+        ├── datamodule.py
+        ├── infer.py
+        ├── __init__.py
+        ├── model.py
+        ├── test.py
+        └── train.py
+```
+
 
 Формулировка задачи
 ------------
