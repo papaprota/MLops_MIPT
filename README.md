@@ -45,7 +45,7 @@
 
 **Обучение** - подготовить run.py file, внутри модельку обернуть в pytorch-lightning для удобного логгирования и сохранения чекпоинтов. Запустить этот .py файл в контейнере, предварительно пробросив туда volume с данными и папкой, куда сохранять модель, а так же настроить порты.
 
-![Схема обучения](https://github.com/papaprota/MLops_MIPT/blob/main/train.png)
+![Схема обучения](https://github.com/papaprota/MLops_MIPT/blob/main/images/train.png)
 
 Инференс
 ------
@@ -60,7 +60,7 @@
 
 4. Бот отправляет суммаризированный текст юзеру в виде сообщения в Telegram.
 
-![Схема работы](https://github.com/papaprota/MLops_MIPT/blob/main/inference.png)
+![Схема работы](https://github.com/papaprota/MLops_MIPT/blob/main/images/inference.png)
 
 [1]: https://github.com/IlyaGusev/gazeta
 [2]: https://huggingface.co/datasets/trixdade/reviews_russian
