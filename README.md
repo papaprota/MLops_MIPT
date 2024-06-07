@@ -2,6 +2,39 @@
 =====
 
 Проект по MLOps MIPT 2024
+-------
+
+## Структура репозитория 
+
+``` bash
+├── bot.py
+├── commands.py
+├── configs
+│   ├── __init__.py
+│   ├── test.yaml
+│   └── train.yaml
+├── data
+│   ├── gazeta_test.jsonl.dvc
+│   └── gazeta_train.jsonl.dvc
+├── images
+│   ├── inference.png
+│   └── train.png
+├── logger_mlflow
+│   ├── docker-compose.yaml
+│   └── Dockerfile
+├── README.md
+├── requirements.txt
+└── summarization
+    ├── __init__.py
+    └── scripts
+        ├── datamodule.py
+        ├── infer.py
+        ├── __init__.py
+        ├── model.py
+        ├── test.py
+        └── train.py
+```
+
 
 Формулировка задачи
 ------------
@@ -45,7 +78,7 @@
 
 **Обучение** - подготовить run.py file, внутри модельку обернуть в pytorch-lightning для удобного логгирования и сохранения чекпоинтов. Запустить этот .py файл в контейнере, предварительно пробросив туда volume с данными и папкой, куда сохранять модель, а так же настроить порты.
 
-![Схема обучения](https://github.com/papaprota/MLops_MIPT/blob/main/train.png)
+![Схема обучения](https://github.com/papaprota/MLops_MIPT/blob/main/images/train.png)
 
 Инференс
 ------
@@ -60,7 +93,7 @@
 
 4. Бот отправляет суммаризированный текст юзеру в виде сообщения в Telegram.
 
-![Схема работы](https://github.com/papaprota/MLops_MIPT/blob/main/inference.png)
+![Схема работы](https://github.com/papaprota/MLops_MIPT/blob/main/images/inference.png)
 
 [1]: https://github.com/IlyaGusev/gazeta
 [2]: https://huggingface.co/datasets/trixdade/reviews_russian

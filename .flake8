@@ -1,0 +1,10 @@
+[flake8]
+per-file-ignores =
+    # line too long
+    summarization/scripts/datamodule.py: E501,
+    summarization/scripts/infer.py: E501,
+    summarization/scripts/train.py: E501
+    summarization/scripts/test.py: E501
+    summarization/scripts/model.py: E501
+    commands.py: E501
+    bot.py: E501

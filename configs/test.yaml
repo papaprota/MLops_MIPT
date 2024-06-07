@@ -1,0 +1,29 @@
+data:
+  val: data/gazeta_test.jsonl
+  tokenizer_name: IlyaGusev/rut5_base_sum_gazeta
+  text_max_token_len: 512
+  summary_max_token_len: 128
+  
+
+model:
+  seed: 42
+  model_name:
+  checkpoints_path: checkpoints
+  device: cpu
+  max_length: 150
+  num_beams: 2 
+  repetition_penalty: 2.5
+  length_penalty: 1.0
+  early_stopping: True
+  
+
+tokenizer:
+  max_length: 512
+  padding: max_length
+  truncation: True
+  return_attention_mask: True
+  add_special_tokens: True
+  return_tensors: pt
+  skip_special_tokens: True
+  clean_up_tokenization_spaces: True
+
