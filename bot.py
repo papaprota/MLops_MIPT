@@ -1,19 +1,22 @@
 import logging
+import os
 
+from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher, executor, types
 
-from summarization.scripts.infer import infer
+from summarization.scripts.test import infer
 
+load_dotenv()
 
 logging.basicConfig(
     format="%(levelname)s: %(asctime)s - %(message)s",
     datefmt="%d-%b-%y %H:%M:%S",
     level=logging.INFO,
 )
-
 # ============ !!! Секретный токен !!! ===============
-APP_TOKEN = ""
+APP_TOKEN = os.getenv("APP_TOKEN")
 # ====================================================
+print(f"tockern  = {APP_TOKEN}")
 
 bot = Bot(token=APP_TOKEN)
 dp = Dispatcher(bot)
@@ -32,9 +35,10 @@ async def add_task(payload: types.Message):
         
         await payload.reply(f"Добавил задачу: *{infer(text=text)}*", parse_mode="Markdown")
 
-    except:
+    except Exception as e:
 
-        await payload.reply(f"Было очень интересно, но я ничего не понял, попробуй еще раз", parse_mode="Markdown")
+        await payload.reply(f"""{e}   
+                            Было очень интересно, но я ничего не понял, попробуй еще раз""", parse_mode="Markdown")
 
 
 
