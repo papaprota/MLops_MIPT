@@ -26,9 +26,7 @@ def get_text(
 
     
 
-    # @hydra.main(version_base=None, config_path="../../configs", config_name="test")
 def infer(text: str|None = None):
-    # pl.seed_everything(42)
     
     tokenizer = AutoTokenizer.from_pretrained('IlyaGusev/rut5_base_sum_gazeta')
     
@@ -38,37 +36,11 @@ def infer(text: str|None = None):
                         summary_max_token_len=128,
                         text=text)
     
-    list_of_files = glob.glob('checkpoints/*') # * means all if need specific format then *.csv
+    list_of_files = glob.glob('checkpoints/*') 
     latest_file = max(list_of_files, key=os.path.getctime)
     trained_model = NewsSummaryModel.load_from_checkpoint(latest_file).model.to('cpu')
 
-    # def summarizeText(text, tokenizer, model):
-    #     text_encoding = tokenizer(
-    #         text,
-    #         max_length=cfg.tokenizer.max_length,
-    #         padding=cfg.tokenizer.padding,
-    #         truncation=cfg.tokenizer.truncation,
-    #         return_attention_mask=cfg.tokenizer.return_attention_mask,
-    #         add_special_tokens=cfg.tokenizer.add_special_tokens,
-    #         return_tensors=cfg.tokenizer.return_tensors
-    #     )
-    #     generated_ids = model.generate(
-    #         input_ids=text_encoding['input_ids'],
-    #         attention_mask=text_encoding['attention_mask'],
-    #         max_length=cfg.model.max_length,
-    #         num_beams=cfg.model.num_beams,
-    #         repetition_penalty=cfg.model.repetition_penalty,
-    #         length_penalty=cfg.model.length_penalty,
-    #         early_stopping=cfg.model.early_stopping
-    #     )
-
-    #     preds = [
-    #             tokenizer.decode(gen_id, 
-    #                             skip_special_tokens=cfg.tokenizer.skip_special_tokens,
-    #                             clean_up_tokenization_spaces=cfg.tokenizer.clean_up_tokenization_spaces)
-    #             for gen_id in generated_ids
-    #     ]
-    #     return "".join(preds)
+    
     def summarizeText(text, tokenizer, model):
         text_encoding = tokenizer(
             text,
@@ -98,7 +70,6 @@ def infer(text: str|None = None):
     
 
 
-    # print(text['text'])
 
     return(summarizeText(text=text,
                         tokenizer=tokenizer,
