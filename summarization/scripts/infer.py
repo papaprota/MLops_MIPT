@@ -1,12 +1,10 @@
-import torch 
 import pytorch_lightning as pl
 import hydra
 import glob
 import os
 from omegaconf import DictConfig
 from transformers import AutoTokenizer
-from pytorch_lightning.callbacks import ModelCheckpoint
-from pytorch_lightning.loggers import TensorBoardLogger
+
 from datamodule import NewsSummaryDataset
 from model import NewsSummaryModel
 

@@ -16,7 +16,6 @@ logging.basicConfig(
 # ============ !!! Секретный токен !!! ===============
 APP_TOKEN = os.getenv("APP_TOKEN")
 # ====================================================
-print(f"tockern  = {APP_TOKEN}")
 
 bot = Bot(token=APP_TOKEN)
 dp = Dispatcher(bot)
