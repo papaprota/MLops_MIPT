@@ -1,0 +1,5 @@
+outs:
+- md5: 10122b91dcad08217da727f4656e040b
+  size: 470816510
+  hash: md5
+  path: gazeta_train.jsonl
