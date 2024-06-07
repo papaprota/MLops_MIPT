@@ -1,12 +1,9 @@
 import mlflow 
 import pytorch_lightning as pl
 import hydra
-import os
-import sys
 from omegaconf import DictConfig
 from transformers import AutoTokenizer
-from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor
-from pytorch_lightning.loggers import TensorBoardLogger
+from pytorch_lightning.callbacks import ModelCheckpoint
 from lightning.pytorch.loggers import MLFlowLogger
 
 from datamodule import NewsSummaryDataModule
@@ -45,14 +42,12 @@ def train(cfg: DictConfig):
     monitor=cfg.training.monitor,
     mode=cfg.training.mode
 )   
-    lr_logger = LearningRateMonitor(logging_interval="epoch")
 
-    # logger = TensorBoardLogger(cfg.training.logger_folder, name=cfg.training.logger_name)
     mlf_logger.log_hyperparams(dict(model.hparams))
 
     trainer = pl.Trainer(
         logger=mlf_logger,
-        callbacks=[checkpoint_callback, lr_logger],
+        callbacks=checkpoint_callback,
         max_epochs=cfg.training.epochs,
         devices=cfg.training.devices,
         accelerator=cfg.training.accelerator,

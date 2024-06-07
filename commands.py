@@ -9,10 +9,10 @@ def main(cfg):
         os.system("python summarization/scripts/train.py")
 
 
-    elif cfg == "test":
-         os.system("python summarization/scripts/test.py")
-
     elif cfg == "infer":
+         os.system("python summarization/scripts/infer.py")
+
+    elif cfg == "test":
         os.system("python bot.py")
 
 
