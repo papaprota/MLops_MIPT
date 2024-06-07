@@ -12,7 +12,7 @@ logging.basicConfig(
 )
 
 # ============ !!! Секретный токен !!! ===============
-APP_TOKEN = "7437247677:AAE9shT7N44dqdFsshRqJ--_7oIuDI4eyuo"
+APP_TOKEN = ""
 # ====================================================
 
 bot = Bot(token=APP_TOKEN)
@@ -20,23 +20,24 @@ dp = Dispatcher(bot)
 
 
 
-@dp.message_handler(commands="all")
+@dp.message_handler(commands="hi")
 async def all_tasks(payload: types.Message):
     await payload.reply(f"Hi")
 
 
-@dp.message_handler(commands="add")
+@dp.message_handler(commands="summarize")
 async def add_task(payload: types.Message):
-    text = payload.get_args().strip()
-    # new_task = pd.DataFrame({"text": [text], "status": ["active"]})
-    # updated_tasks = pd.concat([get_todo_data(), new_task], ignore_index=True, axis=0)
+    try:
+        text = payload.get_args().strip()
+        
+        await payload.reply(f"Добавил задачу: *{infer(text=text)}*", parse_mode="Markdown")
 
-    # ============ Сохраняем ============
-    # updated_tasks.to_csv(PATH_TO_TODO_TABLE, index=False)
-    # ===================================
+    except:
 
-    # logging.info(f"Добавил в таблицу задачу - {text}")
-    await payload.reply(f"Добавил задачу: *{infer(text=text)}*", parse_mode="Markdown")
+        await payload.reply(f"Было очень интересно, но я ничего не понял, попробуй еще раз", parse_mode="Markdown")
+
+
+
 
 
 
